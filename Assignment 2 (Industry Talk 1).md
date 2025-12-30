@@ -2,7 +2,12 @@
 
 For this assignment, Me and my group created a poster about PPG 
 
-![Assignment 2 Poster]PPG Industry Talk.png
+## Industry Visit
+
+![PPG Industry Talk](images/ppg_industry_talk.png)
+
+
+
 
 ## Reflection
 

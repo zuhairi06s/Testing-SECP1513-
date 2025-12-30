@@ -4,7 +4,7 @@ For this assignment, Me and my group created a poster about PPG
 
 ## Industry Visit
 
-![PPG Industry Talk](images/ppg_industry_talk.png)
+![PPG Industry Talk]([images/ppg_industry_talk.png)](https://github.com/zuhairi06s/SECP1513-06/blob/main/PPG%20Industry%20Talk.png?raw=true)
 
 
 

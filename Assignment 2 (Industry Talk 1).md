@@ -2,7 +2,7 @@
 
 For this assignment, Me and my group created a poster about PPG 
 
-
+![Assignment 2 Poster]
 
 ## Reflection
 

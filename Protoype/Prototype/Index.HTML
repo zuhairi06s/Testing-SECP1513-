@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TheCutLab – Barber App Prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .phone {
+      width: 360px;
+      height: 720px;
+      background: #e9b6f2;
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .menu {
+      margin-top: 20px;
+      background: #e4a6ee;
+      border-radius: 20px;
+      padding: 20px;
+      height: 560px;
+    }
+
+    .barbers-title {
+        position: absolute;
+        top: 95px;            /* distance from top border */
+        left: 20px;           /* distance from left border */
+
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .btn-main {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      background: linear-gradient(to right, #ff512f, #dd2476);
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .btn-main:hover {
+      transform: scale(1.03);
+    }
+
+    .list {
+      margin-top: 20px;
+    }
+
+    .list button {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      background: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .list button:hover {
+      background: #f2f2f2;
+    }
+
+    .footer {
+         position: absolute;
+        bottom: 16px;
+        left: 0;
+        width: 100%;
+        padding: 0 16px;   /* adds breathing space */
+        display: flex;
+        justify-content: space-between;
+         align-items: center;
+        box-sizing: border-box;
+    }
+
+    .points {
+        background: white;
+        padding: 8px 14px;
+        border-radius: 999px;   /* perfect pill shape */
+        border: 1.5px solid #ddd;
+        font-size: 12px;
+        white-space: nowrap;
+        box-sizing: border-box;
+    
+    }
+
+    /* Screen simulation */
+    .screen {
+      display: none;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .back-btn {
+        position: absolute;
+        bottom: 60px;          /* sits just above footer */
+        left: 20px;
+
+        padding: 14px 26px;    /* bigger button */
+        font-size: 16px;
+        font-weight: bold;
+
+        border: none;
+        border-radius: 30px;
+        background: #ff512f;
+        color: white;
+        cursor: pointer;
+
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }   
+  </style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span>👤</span>
+    <span>TheCutLab</span>
+    <span>🔔</span>
+  </div>
+
+  <!-- MAIN MENU -->
+  <div class="menu screen active" id="home">
+    <div class="section-title barbers-title">💈 Barbers</div>
+
+    <button class="btn-main" onclick="openScreen('booking')">Booking</button>
+    <button class="btn-main" onclick="openScreen('shifts')">Shifts</button>
+    <button class="btn-main" onclick="openScreen('portfolio')">Portfolio</button>
+    
+    
+
+    <div class="list">
+      <button list ="btn-main" onclick="openScreen('shop')">🛒 Shop</button>
+      <button list ="btn-main" onclick="openScreen('haircutai')">✂️ Haircut AI</button>
+      <button list ="btn-main" onclick="openScreen('rewards')">🏆Rewards</button>
+      <button list ="btn-main" onclick="openScreen('gps')">📍 GPS</button>
+      <button list ="btn-main" onclick="openScreen('subscription')">💳 Subscription</button>
+      <button list ="btn-main" onclick="openScreen('gallery')">🖼️ Gallery</button>
+    </div>
+  </div>
+
+  <!-- BOOKING SCREEN -->
+  <div class="menu screen" id="booking">
+    <h2>Booking</h2>
+    <p>Select barber, date & time</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- SHIFTS SCREEN -->
+  <div class="menu screen" id="shifts">
+    <h2>Shifts</h2>
+    <p>View barber availability</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- PORTFOLIO SCREEN -->
+  <div class="menu screen" id="portfolio">
+    <h2>Portfolio</h2>
+    <p>View haircut styles</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- SHOP SCREEN -->
+  <div class="menu screen" id="shop">
+    <h2>Shop</h2>
+    <p>View item available to buy</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- HAIRCUT AI SCREEN -->
+  <div class="menu screen" id="haircutai">
+    <h2>Haircut AI</h2>
+    <p>View haircut AI Features</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- REWARDS SCREEN -->
+  <div class="menu screen" id="rewards">
+    <h2>Rewards</h2>
+    <p>View rewards</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- GPS SCREEN -->
+  <div class="menu screen" id="gps">
+    <h2>GPS</h2>
+    <p>View GPS location</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- SUBSCRIPTION SCREEN -->
+  <div class="menu screen" id="subscription">
+    <h2>Subscription</h2>
+    <p>View subscription features and prices</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- GALLERY SCREEN -->
+  <div class="menu screen" id="gallery">
+    <h2>Gallery</h2>
+    <p>Photo of different haircut styles</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>🎤 AI Voice Assistant</span>
+    <span class="points">You have 325 points</span>
+  </div>
+
+</div>
+
+<script>
+  function openScreen(id) {
+    document.querySelectorAll('.screen').forEach(screen => {
+      screen.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+
+  function goBack() {
+    openScreen('home');
+  }
+
+  function showAlert(feature) {
+    alert(feature + " feature clicked (Prototype)");
+  }
+</script>
+
+</body>
+</html>
